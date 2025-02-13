@@ -6,6 +6,8 @@ You'll need an HC-SR04, a motor, a L298N motor driver, an Arduino Uno, a breadbo
 
 Lift the coffee mug, and the motor spins a noisy toy (mine's a LEGO set). Put the mug back, and it stops going wild.
 
+See it in action here: https://www.instagram.com/p/DGA95ZQyvBR/
+
 ![WhereIsMyMug_1](https://github.com/user-attachments/assets/32b86d5a-72d6-4343-83a7-f03e509abd1e)
 
 ![WhereIsMyMug_2](https://github.com/user-attachments/assets/a017dcc9-3b44-4386-93bd-b621c09551c6)
