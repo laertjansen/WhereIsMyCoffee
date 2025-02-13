@@ -1,0 +1,62 @@
+// Where's my coffee?
+
+//Motors
+
+#define pinButtonA 2
+#define pinButtonB 7
+
+#define pinForwardsMotorB 9
+#define pinBackwardsMotorB 10
+
+#define speed 80   
+
+//Buttons
+
+byte stateA = 0;
+bool stateButtonA = true;
+bool stateAntButtonA = true;
+unsigned long delayButtonA;
+
+byte stateB = 0;
+bool stateButtonB = true;
+bool stateAntButtonB = true;
+unsigned long delayButtonB;
+
+//Sonic Sensor
+
+const int trigPin = 11;
+const int echoPin = 12;
+
+
+void setup() {
+
+  Serial.begin(9600);
+
+  pinMode(pinForwardsMotorB, OUTPUT);
+  pinMode(pinBackwardsMotorB, OUTPUT);
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  long duration = pulseIn(echoPin, HIGH);
+  int distance = duration / 58;
+
+  if (distance <= 10) {
+    analogWrite(pinForwardsMotorB, LOW);
+    analogWrite(pinBackwardsMotorB, LOW);
+  }
+
+  else if (distance > 10) {
+    analogWrite(pinForwardsMotorB, speed);
+    analogWrite(pinBackwardsMotorB, LOW);
+
+  } 
+}
